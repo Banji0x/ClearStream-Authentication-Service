@@ -1,0 +1,6 @@
+/.idea/
+/org.clearstream.authentication/.gitattributes
+/org.clearstream.authentication/.mvn
+/org.clearstream.authentication/mvnw
+/org.clearstream.authentication/mvnw.cmd
+/org.clearstream.authentication/target
