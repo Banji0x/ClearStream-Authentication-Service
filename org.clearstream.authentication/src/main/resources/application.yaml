@@ -1,0 +1,44 @@
+spring:
+  application:
+    name:
+      ClearStream Authentication Service
+  jpa:
+    open-in-view: true
+  #    hibernate:
+  #      ddl-auto:
+  datasource:
+    #    driver-class-name: org.postgresql.Driver
+    url: ${DATASOURCE_CONNECTION_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+  data:
+    redis:
+      host: localhost
+      port: 6379
+#  devtools:
+#    livereload:
+#      enabled: false
+server:
+  port:
+    8001
+security:
+  jwt:
+    secret_key:
+      ${SECURITY_JWT_SECRETKEY}
+    access-token-expiration-time-in-milli-seconds:
+      ${SECURITY_JWT_ACCESSTOKENEXPIRATIONTIMEINMILLISECONDS:259200000} #this should be a short-lived i.e 3 days
+    refresh-token-expiration-time-in-milli-seconds:
+      ${SECURITY_JWT_REFRESHTOKENEXPIRATIONTIMEINMILLISECONDS:604800000}  #this should be a long-lived i.e 1 week
+
+cache:
+  redis:
+    refresh-token-blacklist-default-value:
+      blacklist
+    access-token-blacklist-default-value:
+      blacklist
+
+logging:
+  level:
+    org:
+      springframework:
+        security: trace
